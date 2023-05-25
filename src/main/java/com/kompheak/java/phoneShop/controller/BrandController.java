@@ -2,8 +2,8 @@ package com.kompheak.java.phoneShop.controller;
 
 import com.kompheak.java.phoneShop.dto.BrandDTO;
 import com.kompheak.java.phoneShop.entity.Brand;
+import com.kompheak.java.phoneShop.mapper.BrandMapper;
 import com.kompheak.java.phoneShop.service.BrandService;
-import com.kompheak.java.phoneShop.util.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,9 @@ public class BrandController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> create(@RequestBody BrandDTO brandDTO){
-        Brand brand = Mapper.toBrand(brandDTO);
+        //Brand brand = Mapper.toBrand(brandDTO);
+
+        Brand brand = BrandMapper.INSTANCE.toBrand(brandDTO);
 
         brand = brandService.create(brand);
 
@@ -29,15 +31,15 @@ public class BrandController {
 
         Brand brand = brandService.getById(brandId);
 
-        return ResponseEntity.ok(brand);
+        return ResponseEntity.ok(BrandMapper.INSTANCE.toBrandDto(brand));
     }
 
     @PutMapping("{id}")
     public ResponseEntity<?> update(@PathVariable("id") Integer brandId,@RequestBody BrandDTO brandDTO){
 
-        Brand brand = Mapper.toBrand(brandDTO);
+        Brand brand = BrandMapper.INSTANCE.toBrand(brandDTO);
         Brand updatedBrand = brandService.update(brandId, brand);
 
-        return ResponseEntity.ok(Mapper.toBrandDTO(updatedBrand));
+        return ResponseEntity.ok(BrandMapper.INSTANCE.toBrandDto(updatedBrand));
     }
 }
