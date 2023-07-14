@@ -18,4 +18,5 @@ public class Model {
     @ManyToOne
     @JoinColumn(name = "brandId")
     private Brand brand;
+
 }

@@ -1,7 +1,8 @@
-package com.kompheak.java.phoneShop.repository;
+package com.kompheak.java.phoneShop.service.implementation;
 
 import com.kompheak.java.phoneShop.entity.Brand;
 import com.kompheak.java.phoneShop.exception.ResourceNotFoundException;
+import com.kompheak.java.phoneShop.repository.BrandRepository;
 import com.kompheak.java.phoneShop.service.BrandService;
 import com.kompheak.java.phoneShop.spec.BrandFilter;
 import com.kompheak.java.phoneShop.spec.BrandSpec;
