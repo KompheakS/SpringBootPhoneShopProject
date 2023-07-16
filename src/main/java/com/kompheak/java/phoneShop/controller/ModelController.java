@@ -4,7 +4,6 @@ import com.kompheak.java.phoneShop.dto.ModelDTO;
 import com.kompheak.java.phoneShop.entity.Model;
 import com.kompheak.java.phoneShop.service.ModelsService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,11 +16,11 @@ public class ModelController {
     private final ModelsService modelsService;
 
     //@PostMapping("/create")
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping("/create")
     public ResponseEntity<?> createModel(@RequestBody ModelDTO modelDTO){
         //modelsService.save();
+        modelsService.save(modelDTO);
 
-        return null;//ResponseEntity.ok(model);
+        return ResponseEntity.ok(modelDTO);
     }
-
 }
