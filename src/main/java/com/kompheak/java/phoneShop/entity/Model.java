@@ -15,7 +15,8 @@ public class Model {
     @Column()
     private String name;
 
-    @Column()
     @ManyToOne
+    @JoinColumn(name = "brandId")
     private Brand brand;
+
 }
