@@ -1,7 +1,6 @@
 package com.kompheak.java.phoneShop.controller;
 
 import com.kompheak.java.phoneShop.dto.ModelDTO;
-import com.kompheak.java.phoneShop.entity.Model;
 import com.kompheak.java.phoneShop.service.ModelsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
